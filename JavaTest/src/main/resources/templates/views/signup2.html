@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+      <form th:action="@{/detail}" th:object="${users}" method="post" enctype="multipart/form-data">
+      
+        <h1>Chi Tiết</h1>
+        
+        <fieldset>
+          <legend><span class="number">1</span>Your basic info</legend>
+          <label for="name">ID:</label>
+          <input type="text" id="name" th:field="*{id}" >
+          <i th:errors="*{id}" for=""></i>
+          <label for="mail">UserName: </label>
+          <input type="text" id="mail"th:field="*{name}" >
+          <i th:errors="*{name}"></i>
+          <label for="password">Password:</label>
+          <input type="password" id="password"th:field="*{password}"  >
+          <i th:errors="*{password}"></i>
+          <label for="name">Phone:</label>
+          <input type="text" id="password" th:field="*{phonenumber}" >
+          <i th:errors="*{phonenumber}"></i>
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" th:field="*{email}" >
+          <i th:errors="*{email}"></i>
+          <label for="name">Address:</label>
+          <input type="text" id="password" th:field="*{address}" >
+          <i th:errors="*{address}"></i>
+          <input type="hidden" th:field="*{emoji}" name="" id="">
+          <!-- <input type="text" name="" th:field="*{emoji}"> -->
+
+        </fieldset>
+        
+        <fieldset>
+          <legend><span class="number">2</span>Photo of Photos</legend>
+          <div th:if="*{emoji} != null">
+          <img th:src="@{|/assert/img/*{emoji}|}" width="100px" height="100px" alt="">
+        </div>
+          <input type="file" name="file" required class="form-control-file">
+        </fieldset>
+        <button type="submit">Update</button>
+        
+      </form>
+      
+    </body>
+</html>
+</body>
+</html>

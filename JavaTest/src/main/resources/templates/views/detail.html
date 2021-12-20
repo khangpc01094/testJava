@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org"
+th:replace="~{/layout/indexs :: dynamic(~{:: main})}">
+
+  <!--    color palettes       -->
+<main>
+  <div class="container-fluid inner">
+    <table class="tableizer-table">
+      <tr class="tableizer-firstrow">
+        <th>Image</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th></th>
+      </tr>
+      <tbody>
+      <tr  th:each="item : ${list}">
+        <td><div class="c ab-bg"><img th:src="@{|/assert/images/${item.emoji}|}" width="100px" height="100px" alt=""></div></td>
+        <td>[[${item.name}]]</td>
+        <td>[[${item.password}]]</td>
+        <td>[[${item.phonenumber}]]</td>
+        <td>[[${item.email}]]</td>
+        <td>[[${item.address}]]</td>
+        <td>
+            <a th:href="@{|/detail/${item.id}|}">Edit</a>
+            <a class="btn btn-light action-button" role="button"  th:href="@{|/detaild/${item.id}|}">DELETE</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div>
+</div>
+  </div>
+</main>
+</html>
